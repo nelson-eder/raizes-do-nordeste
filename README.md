@@ -95,5 +95,3 @@ O projeto também funciona como PWA. A instalação pode ser acessada pela pági
 ## Observação
 
 Cadastro, CPF, benefícios, pagamento e acompanhamento de pedidos são simulações de front-end. Essas informações ficam somente no navegador e não são enviadas para um servidor.
-
-Os diagramas, wireframes, plano de testes e demais materiais estão disponíveis nos outros documentos deste projeto.
