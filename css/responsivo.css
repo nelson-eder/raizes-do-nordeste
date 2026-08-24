@@ -1,0 +1,438 @@
+/*
+  A base começa no menor espaço disponível. A versão desktop apenas amplia
+  blocos e espaçamentos quando existe área suficiente.
+*/
+
+.page-container {
+  width: min(100% - 24px, 480px);
+}
+
+.header-content {
+  min-height: 68px;
+}
+
+.header-actions {
+  gap: 8px;
+}
+
+.main-navigation {
+  gap: 12px;
+}
+
+.main-navigation a:not(.button) {
+  display: none;
+}
+
+.main-navigation a.header-wide-link {
+  display: none;
+}
+
+.menu-toggle {
+  min-height: 38px;
+  padding: 0 10px;
+}
+
+.site-menu-navigation {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.site-menu-link {
+  flex-basis: calc(50% - 6px);
+}
+
+.hero-content,
+.unit-card,
+.privacy-content,
+.product-detail,
+.checkout-layout,
+.auth-grid,
+.profile-grid,
+.payment-layout,
+.order-layout {
+  flex-direction: column;
+}
+
+.hero-copy,
+.hero-highlight,
+.unit-card-content,
+.unit-preview,
+.privacy-copy,
+.privacy-highlight,
+.privacy-content > div,
+.privacy-content > p,
+.privacy-content > .text-link,
+.product-detail-image,
+.product-detail-content,
+.checkout-layout > :first-child,
+.checkout-layout > :last-child,
+.auth-card,
+.profile-card,
+.privacy-card,
+.payment-layout > :first-child,
+.payment-layout > :last-child,
+.order-layout > :first-child,
+.order-layout > :last-child {
+  flex: 1 1 100%;
+  min-width: 0;
+  width: 100%;
+}
+
+.hero-content {
+  min-height: auto;
+  gap: 36px;
+  padding-top: 48px;
+  padding-bottom: 48px;
+}
+
+.hero-highlight {
+  min-height: 210px;
+}
+
+.unit-section,
+.benefits-section,
+.privacy-section {
+  padding: 64px 0;
+}
+
+.privacy-content {
+  align-items: start;
+  gap: 18px;
+}
+
+.menu-toolbar {
+  align-items: start;
+  flex-direction: column;
+}
+
+.menu-unit-selector {
+  width: 100%;
+  flex: 0 0 auto;
+}
+
+.product-detail-image {
+  min-height: 230px;
+}
+
+.text-link {
+  white-space: normal;
+}
+
+.cart-heading {
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.cart-heading-icon {
+  width: 52px;
+  height: 52px;
+  flex-basis: 52px;
+  border-radius: 12px;
+}
+
+.cart-heading-icon img {
+  width: 28px;
+  height: 28px;
+}
+
+.floating-cart {
+  right: 16px;
+  bottom: 16px;
+}
+
+.information-grid {
+  flex-direction: column;
+}
+
+.information-card {
+  flex-basis: 100%;
+}
+
+.franchise-contact {
+  align-items: flex-start;
+  flex-direction: column;
+}
+
+.feature-grid,
+.menu-grid,
+.benefits-grid {
+  flex-direction: column;
+}
+
+.menu-grid {
+  flex-wrap: nowrap;
+}
+
+.feature-card,
+.product-card,
+.benefit-card {
+  flex-basis: 100%;
+}
+
+.product-card {
+  flex: 0 0 auto;
+  flex-direction: column;
+}
+
+.product-thumb {
+  width: 100%;
+  min-height: 180px;
+  flex-basis: 180px;
+}
+
+.product-card-content {
+  padding: 18px;
+}
+
+.product-action {
+  width: 100%;
+  align-self: stretch;
+}
+
+.points-card {
+  align-items: flex-start;
+  flex-direction: column;
+}
+
+.payment-card,
+.order-card,
+.unit-card-content,
+.unit-preview,
+.feature-card,
+.product-detail-content {
+  padding: 24px;
+}
+
+.cart-item {
+  align-items: flex-start;
+}
+
+.cart-item-image {
+  width: 50px;
+  height: 50px;
+  flex-basis: 50px;
+}
+
+.cart-item-content {
+  flex-basis: calc(100% - 64px);
+}
+
+.quantity-control,
+.cart-item-total,
+.remove-button {
+  margin-left: 64px;
+}
+
+.cart-item-total {
+  min-width: 0;
+  text-align: left;
+}
+
+.remove-button {
+  align-self: flex-start;
+}
+
+.footer-content {
+  align-items: flex-start;
+  flex-direction: column;
+}
+
+.brand-mark {
+  width: 36px;
+  height: 36px;
+}
+
+.logotipo {
+  height: 60px;
+}
+
+.logo {
+  height: 54px;
+}
+
+.brand-name strong {
+  font-size: 1.05rem;
+}
+
+.brand-name small {
+  font-size: 0.65rem;
+}
+
+.button-small {
+  padding: 0 12px;
+}
+
+h1 {
+  font-size: 2.65rem;
+}
+
+.hero-copy p {
+  font-size: 1rem;
+}
+
+@media (min-width: 801px) {
+  .page-container {
+    width: min(1120px, calc(100% - 40px));
+  }
+
+  .header-content {
+    min-height: 78px;
+  }
+
+  .header-actions {
+    gap: 14px;
+  }
+
+  .main-navigation {
+    gap: 24px;
+  }
+
+  .site-menu-navigation {
+    flex-direction: row;
+  }
+
+  .site-menu-link {
+    flex-basis: calc(20% - 10px);
+  }
+
+  .main-navigation a:not(.button) {
+    display: inline;
+  }
+
+  .main-navigation a.header-wide-link {
+    display: none;
+  }
+
+  .hero-content {
+    min-height: 430px;
+    flex-direction: row;
+    gap: 64px;
+    padding-top: 56px;
+    padding-bottom: 56px;
+  }
+
+  .hero-highlight {
+    min-height: 250px;
+  }
+
+  .unit-section,
+  .benefits-section,
+  .privacy-section {
+    padding: 88px 0;
+  }
+
+  .unit-card {
+    flex-direction: row;
+  }
+
+  .privacy-content {
+    align-items: stretch;
+    flex-direction: row;
+    gap: 34px;
+  }
+
+  .feature-grid {
+    flex-direction: row;
+  }
+
+  .feature-card {
+    flex-basis: calc(33.333% - 12px);
+  }
+
+  .menu-toolbar {
+    align-items: end;
+    flex-direction: row;
+  }
+
+  .menu-unit-selector {
+    width: auto;
+    flex: 0 1 320px;
+  }
+
+  .menu-grid {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  .product-card {
+    flex-direction: row;
+    flex: 1 1 calc(50% - 9px);
+  }
+
+  .product-detail {
+    flex-direction: row;
+  }
+
+  .product-detail-image {
+    min-height: 400px;
+  }
+
+  .product-detail-content {
+    padding: 42px;
+  }
+
+  .checkout-layout {
+    flex-direction: row;
+  }
+
+  .auth-grid {
+    flex-direction: row;
+  }
+
+  .benefits-grid {
+    flex-direction: row;
+  }
+
+  .benefit-card {
+    flex-basis: calc(50% - 9px);
+  }
+
+  .profile-grid {
+    flex-direction: row;
+  }
+
+  .payment-layout,
+  .order-layout {
+    flex-direction: row;
+  }
+
+  .points-card {
+    align-items: center;
+    flex-direction: row;
+  }
+
+  .payment-card,
+  .order-card {
+    padding: 36px;
+  }
+
+  .unit-card-content,
+  .unit-preview,
+  .feature-card {
+    padding: 34px;
+  }
+
+  .footer-content {
+    align-items: center;
+    flex-direction: row;
+  }
+
+  h1 {
+    font-size: clamp(2.5rem, 5vw, 4.6rem);
+  }
+
+  .hero-copy p {
+    font-size: 1.08rem;
+  }
+}
+
+@media (min-width: 1200px) {
+  .main-navigation a.header-wide-link {
+    display: inline;
+  }
+
+  .menu-toggle,
+  .site-menu {
+    display: none;
+  }
+}
