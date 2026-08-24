@@ -19,12 +19,12 @@ Não há back-end, banco de dados ou dependências para instalar. Os dados utili
 O site começa em:
 
 ```text
-site/index.html
+./index.html
 ```
 
 Para testar o projeto, abra a pasta no Visual Studio Code e execute esse arquivo com o Live Server.
 
-Também é possível publicar diretamente o conteúdo da pasta `site` na Vercel, Netlify ou em outro serviço de hospedagem estática. Não existe comando de build.
+Também é possível publicar diretamente o conteúdo na Vercel, Netlify ou em outro serviço de hospedagem estática. Não existe comando de build.
 
 ## Funcionamento do site
 
@@ -51,7 +51,7 @@ Antes de ser utilizado pelos clientes, o totem precisa ser configurado por um fu
 Para abrir a configuração, acesse:
 
 ```text
-site/totem.html?configuracao=1
+./totem.html?configuracao=1
 ```
 
 Utilize o PIN demonstrativo:
@@ -67,7 +67,7 @@ A unidade fica armazenada no navegador. Por isso, ela não precisa ser escolhida
 Após a configuração, o endereço utilizado pelos clientes é:
 
 ```text
-site/totem.html
+./totem.html
 ```
 
 No totem, o cliente pode:
@@ -89,26 +89,7 @@ Para trocar a unidade do equipamento, basta acessar novamente a página de confi
 O projeto também funciona como PWA. A instalação pode ser acessada pela página:
 
 ```text
-site/aplicativo.html
-```
-
-No Android, o próprio navegador pode apresentar a opção de instalação. No iPhone, é necessário abrir o site no Safari e utilizar a opção **Adicionar à Tela de Início**.
-
-A instalação da PWA precisa ser testada em um endereço HTTPS ou em um servidor local.
-
-## Estrutura principal
-
-```text
-raizes_do_nordeste/
-├── site/
-│   ├── assets/       Imagens, ícones e logotipos
-│   ├── css/          Estilos do site e do totem
-│   ├── js/           Dados e interações
-│   ├── index.html    Página inicial
-│   └── totem.html    Totem de autoatendimento
-├── diagramas/        Diagramas do projeto
-├── documentacao/     Relatório e evidências
-└── README.md
+./aplicativo.html
 ```
 
 ## Observação
