@@ -1,4 +1,4 @@
-const nomeCache = "raizes-pwa-v4";
+const nomeCache = "raizes-pwa-v5";
 const arquivosParaCache = [
   "./",
   "./index.html",
@@ -14,7 +14,6 @@ const arquivosParaCache = [
   "./pedido.html",
   "./perfil.html",
   "./privacidade.html",
-  "./produto.html",
   "./quem-somos.html",
   "./totem.html",
   "./css/estilos.css",
@@ -34,7 +33,6 @@ const arquivosParaCache = [
   "./js/pedido.js",
   "./js/perfil.js",
   "./js/pwa.js",
-  "./js/produto.js",
   "./js/rolagem.js",
   "./js/totem.js",
   "./assets/logos/logo.png",
