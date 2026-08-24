@@ -1,0 +1,884 @@
+p {
+  margin: 0;
+}
+
+.totem-mode {
+  --totem-control-height: 64px;
+}
+
+.totem-mode .button,
+.totem-mode .field-control {
+  min-height: var(--totem-control-height);
+  font-size: 1.05rem;
+}
+
+.totem-mode {
+  min-height: 100vh;
+  background: var(--cream-dark);
+}
+
+.totem-header {
+  border-bottom: 1px solid var(--border);
+  background: var(--cream);
+}
+
+.totem-navigation-header {
+  margin-bottom: 22px;
+  padding-bottom: 18px;
+  border-bottom: 1px solid var(--border);
+}
+
+.totem-navigation-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 14px;
+}
+
+.totem-navigation-button {
+  min-height: 56px !important;
+  padding: 0 14px;
+  font-size: 0.88rem !important;
+}
+
+.totem-cancel-button {
+  border-color: var(--orange);
+  color: var(--orange);
+}
+
+.totem-cancel-button:hover {
+  color: var(--white);
+  background: var(--orange);
+}
+
+.totem-navigation-finished {
+  color: var(--brown-soft);
+  font-size: 0.86rem;
+  font-weight: 700;
+}
+
+.totem-navigation-top > div:last-child {
+  text-align: right;
+}
+
+.totem-navigation-finished {
+  color: var(--green);
+}
+
+.totem-progress {
+  display: flex;
+  gap: 8px;
+  margin: 0;
+  padding: 0 0 4px;
+  overflow-x: auto;
+  list-style: none;
+  scrollbar-color: var(--orange) var(--scrollbar-track);
+  scrollbar-width: auto;
+}
+
+/* Largura da barra */
+.totem-progress::-webkit-scrollbar {
+  height: 15px;
+}
+
+/*  Fundo da barra */
+.totem-progress::-webkit-scrollbar-track {
+  background: var(--scrollbar-track);
+}
+
+/* O puxador da barra */
+.totem-progress::-webkit-scrollbar-thumb {
+  background: var(--orange);
+  border-radius: 5px;
+}
+
+/* Puxador ao passar o mouse */
+.totem-progress::-webkit-scrollbar-thumb:hover {
+  background: var(--orange-light);
+}
+
+
+.totem-start-logo-wrapper {
+  display: flex;
+  justify-content: center;
+  position: absolute;
+  left: 0;
+  top: 20px;
+  width: 100%;
+}
+
+.totem-start-logo{ 
+  max-width: 300px;
+}
+
+.totem-progress-step {
+  display: flex;
+  min-width: 117px;
+  flex: 1 0 96px;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 10px;
+  border-radius: 10px;
+  color: var(--brown-soft);
+  background: var(--white);
+  font-size: 0.76rem;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+@media (max-width: 770px) {
+  .totem-progress {
+    justify-content: space-between;
+    gap: 0;
+  }
+
+  .totem-progress-step {
+    width: 60px;
+    min-width: 60px;
+    flex: 0 0 60px;
+    justify-content: center;
+    padding: 8px 0;
+  }
+
+  .totem-progress-step > span:not(.totem-progress-marker) {
+    display: none;
+  }
+}
+
+.totem-progress-marker {
+  display: flex;
+  width: 24px;
+  height: 24px;
+  flex: 0 0 auto;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  color: var(--brown-soft);
+  background: var(--cream-dark);
+  font-size: 0.72rem;
+}
+
+.totem-progress-step-active {
+  border-color: var(--green);
+  color: var(--green-dark);
+  background: var(--green-soft);
+}
+
+.totem-progress-step-active .totem-progress-marker {
+  color: var(--white);
+  background: var(--green);
+}
+
+.totem-progress-step-done {
+  border-color: var(--green-border-soft);
+  color: var(--green);
+}
+
+.totem-progress-step-done .totem-progress-marker {
+  color: var(--white);
+  background: var(--green);
+}
+
+.totem-header-content {
+  display: flex;
+  width: min(100% - 28px, 620px);
+  min-height: 72px;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  justify-content: center;
+  margin: 0 auto;
+}
+
+.totem-label {
+  color: var(--brown-soft);
+  font-size: 0.9rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.totem-main {
+  padding: 20px 12px 32px;
+}
+
+.totem-shell {
+  width: min(620px, 100%);
+  min-height: calc(100vh - 124px);
+  margin: 0 auto;
+  padding: 24px 18px;
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  background: var(--cream);
+  box-shadow: var(--shadow);
+}
+
+.totem-config-heading {
+  max-width: 720px;
+  margin: 0 auto 28px;
+}
+
+.totem-config-heading h1 {
+  margin-bottom: 10px;
+  font-size: clamp(2.2rem, 4vw, 3.8rem);
+}
+
+.totem-config-heading p {
+  margin-bottom: 0;
+  color: var(--brown-soft);
+  font-size: 1.12rem;
+}
+
+.totem-config-panel {
+  margin: 0 auto;
+}
+
+.totem-configured-unit {
+  display: flex;
+  max-width: 430px;
+  flex-direction: column;
+  gap: 4px;
+  padding: 14px 18px;
+  border-radius: 10px;
+  margin: 0 auto;
+}
+
+.totem-configured-unit span {
+  color: var(--brown-soft);
+  font-size: 0.7rem;
+  text-align: center;
+  color: #7cb467;
+}
+
+.totem-step-heading {
+  margin-bottom: 24px;
+}
+
+.totem-step-heading h1 {
+  margin-bottom: 10px;
+  font-size: clamp(2.2rem, 4vw, 3.8rem);
+}
+
+.totem-step-heading p {
+  max-width: 680px;
+  margin-bottom: 0;
+  color: var(--brown-soft);
+  font-size: 1.12rem;
+}
+
+.totem-welcome {
+  display: flex;
+  min-height: 268px;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  padding: 32px;
+  text-align: center;
+}
+
+.totem-start-content {
+  display: flex;
+  position: relative;
+  min-height: calc(100vh - 200px);
+  flex-direction: column;
+  justify-content: center;
+}
+
+.totem-welcome h1{
+  margin-bottom: 16px;
+  font-size: clamp(2.8rem, 6vw, 5.2rem);
+}
+
+.totem-welcome p {
+  max-width: 600px;
+  color: var(--brown-soft);
+  font-size: 1.18rem;
+}
+
+.totem-welcome-icon {
+  display: flex;
+  width: 82px;
+  height: 82px;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 24px;
+  border-radius: 50%;
+  color: var(--green-dark);
+  background: var(--cream-accent);
+  font-size: 2.2rem;
+}
+
+.totem-logotipo {
+  max-width: 100%;
+}
+
+.totem-panel {
+  max-width: 720px;
+  padding: 30px;
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  background: var(--white);
+}
+
+.totem-payment-panel {
+  width: 100%;
+  max-width: none;
+}
+
+.totem-panel .field-label {
+  display: block;
+  margin: 10px 0px;
+}
+
+.totem-control {
+  width: 100%;
+  margin-bottom: 12px;
+}
+
+.totem-identification-panel {
+  width: 100%;
+  max-width: none;
+  padding: 22px 30px;
+}
+
+.totem-identification-options {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.totem-keyboard {
+  display: flex;
+  max-width: 420px;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin: 2px auto 10px;
+}
+
+.totem-key-button {
+  flex: 1 1 calc(33.333% - 8px);
+  min-width: 80px !important;
+  min-height: 48px !important;
+  padding: 0 12px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  color: var(--green-dark);
+  background: var(--cream);
+  cursor: pointer;
+  font-size: 1rem !important;
+  font-weight: 700;
+  user-select: none;
+  touch-action: manipulation;
+}
+
+.totem-key-button:hover,
+.totem-key-button:focus-visible {
+  color: var(--white);
+  border-color: var(--green);
+  background: var(--green);
+}
+
+.totem-identification-panel .totem-control {
+  margin-bottom: 8px;
+}
+
+.totem-identification-options .checkbox-row {
+  margin: 6px 0;
+}
+
+.totem-identification-panel .totem-privacy-note {
+  margin-top: 10px;
+}
+
+.totem-identification-actions .totem-button-small {
+  width: 50%;
+  min-width: 0;
+  flex: 1 1 0;
+}
+
+.totem-button {
+  width: min(100%, 430px);
+  margin-top: 18px;
+}
+
+.totem-payment-panel .totem-button {
+  width: 100%;
+}
+
+.totem-empty-cart-button {
+  width: 100%;
+  margin-top: 0;
+}
+
+.totem-button-small {
+  min-width: 150px;
+  min-height: 56px;
+}
+
+.totem-scroll-area {
+  flex: 1 1 auto;
+  min-width: 0;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  touch-action: pan-y;
+  -webkit-overflow-scrolling: touch;
+  user-select: none;
+  -webkit-user-select: none;
+  scrollbar-width: none;
+}
+
+.totem-scroll-wrapper {
+  display: flex;
+  width: 100%;
+  align-items: stretch;
+  gap: 8px;
+}
+
+.totem-menu-grid {
+  display: flex;
+  max-height: 52vh;
+  min-height: 180px;
+  flex-direction: column;
+  gap: 18px;
+  padding: 4px 8px 4px 2px;
+}
+
+.totem-cart-items-scroll {
+  max-height: 52vh;
+  padding: 4px 8px 4px 2px;
+}
+
+.totem-scroll-area::-webkit-scrollbar {
+  display: none;
+  width: 0;
+  height: 0;
+}
+
+.totem-scrollbar {
+  display: flex;
+  width: 30px;
+  flex: 0 0 30px;
+  align-items: flex-start;
+  overflow: hidden;
+  border-radius: 0;
+  background: var(--scrollbar-track);
+  cursor: pointer;
+  touch-action: none;
+  user-select: none;
+  -webkit-user-select: none;
+  border-radius: 10px;
+}
+
+.totem-scrollbar[hidden] {
+  display: none;
+}
+
+.menu-scroll-wrapper .totem-scrollbar {
+  width: 15px;
+  flex-basis: 15px;
+}
+
+.totem-scrollbar-thumb {
+  display: block;
+  width: 100%;
+  min-height: 36px;
+  border-radius: 5px;
+  background: var(--orange);
+  cursor: grab;
+}
+
+.totem-scrollbar-thumb-dragging {
+  cursor: grabbing;
+}
+
+.totem-product-card {
+  display: flex;
+  gap: 18px;
+  align-items: stretch;
+  padding: 16px;
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  background: var(--white);
+}
+
+.totem-product-info {
+  min-width: 0;
+  flex: 1;
+}
+
+.totem-quantity-controls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 6px;
+  flex: 0 0 auto;
+}
+
+.totem-quantity-button {
+  display: flex;
+  width: 42px;
+  min-width: 42px !important;
+  height: 42px;
+  min-height: 42px !important;
+  padding: 0;
+  align-items: center;
+  justify-content: center;
+  border: 0;
+  border-radius: 10px;
+  color: var(--white);
+  background: var(--green);
+  font-size: 1.3rem !important;
+  font-weight: 700;
+}
+
+.totem-quantity-button:hover,
+.totem-quantity-button:focus-visible {
+  color: var(--white);
+  background: var(--green-dark);
+}
+
+.totem-product-quantity {
+  min-width: 28px;
+  margin: 0 !important;
+  color: var(--green-dark);
+  text-align: center;
+}
+
+.totem-product-card h2 {
+  margin-bottom: 8px;
+  font-size: 1.35rem;
+}
+
+.totem-product-card p {
+  min-height: 0;
+  margin-bottom: 14px;
+  color: var(--brown-soft);
+  font-size: 0.95rem;
+}
+
+.totem-product-card strong {
+  display: block;
+  margin-bottom: 14px;
+  color: var(--green-dark);
+  font-size: 1.15rem;
+}
+
+.totem-product-image {
+  display: flex;
+  width: 112px;
+  height: 112px;
+  flex: 0 0 112px;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  border: 3px solid var(--image-border);
+  border-radius: 18px;
+  background: var(--cream-accent);
+}
+
+.totem-product-image img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.totem-bottom-bar,
+.totem-action-row {
+  display: flex;
+  align-items: stretch;
+  flex-direction: column;
+  gap: 16px;
+  margin-top: 28px;
+}
+
+.totem-action-row.totem-identification-actions {
+  flex-direction: row;
+  gap: 8px;
+  margin-top: 16px;
+}
+
+.totem-cart-actions {
+  flex-direction: row;
+}
+
+.totem-cart-actions .totem-button-small {
+  width: 50%;
+  min-width: 0;
+  flex: 1 1 0;
+}
+
+.totem-bottom-bar {
+  padding: 18px 22px;
+  border-radius: 14px;
+  color: var(--green-dark);
+  background: var(--cream-accent);
+  font-weight: 700;
+}
+
+.totem-menu-total {
+  display: flex;
+  align-items: baseline;
+  gap: 6px;
+  margin-left: auto;
+}
+
+.totem-menu-total strong {
+  margin: 0;
+  color: var(--green-dark);
+  font-size: 1.35rem;
+}
+
+.totem-cart-panel {
+  max-width: none;
+}
+
+.totem-cart-item {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 16px;
+  padding: 16px 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.totem-cart-item-image {
+  display: flex;
+  width: 72px;
+  height: 72px;
+  flex: 0 0 72px;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  border: 3px solid var(--image-border);
+  border-radius: 14px;
+  background: var(--cream-accent);
+}
+
+.totem-cart-item-image img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.totem-cart-item-info {
+  display: flex;
+  min-width: 0;
+  flex: 1 1 150px;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.totem-cart-item-info strong {
+  margin: 0;
+  color: var(--green-dark);
+}
+
+.totem-cart-item-info span {
+  color: var(--brown-soft);
+  font-size: 0.9rem;
+}
+
+.totem-cart-item-total {
+  min-width: 96px;
+  margin: 0;
+  color: var(--green-dark);
+  text-align: right;
+}
+
+.totem-cart-item-controls {
+  margin-left: auto;
+}
+
+.totem-cart-item:last-of-type {
+  border-bottom: 0;
+}
+
+.totem-total {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-top: 20px;
+  padding-top: 20px;
+  border-top: 2px solid var(--green);
+  color: var(--green-dark);
+  font-size: 1.2rem;
+}
+
+.totem-total strong {
+  font-size: 1.55rem;
+}
+
+.totem-choice-grid {
+  display: flex;
+  width: 100%;
+  max-width: none;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.totem-choice-card {
+  display: flex;
+  flex: 1 1 calc(50% - 10px);
+  min-width: 0;
+  min-height: 150px;
+  align-items: flex-start;
+  flex-direction: column;
+  justify-content: center;
+  padding: 28px;
+  border: 2px solid var(--border);
+  border-radius: 16px;
+  color: var(--green-dark);
+  background: var(--white);
+  cursor: pointer;
+  text-align: left;
+}
+
+.totem-choice-card:hover,
+.totem-choice-card:focus-visible {
+  border-color: var(--orange);
+  box-shadow: 0 8px 20px rgba(202, 101, 67, 0.12);
+}
+
+.totem-choice-card strong {
+  margin-bottom: 8px;
+  font-size: 1.25rem;
+}
+
+.totem-choice-card span {
+  color: var(--brown-soft);
+}
+
+.totem-choice-success {
+  border-color: var(--green);
+}
+
+.totem-choice-error {
+  border-color: var(--orange);
+}
+
+.totem-welcome-success .totem-welcome-icon {
+  color: var(--white);
+  background: var(--green);
+}
+
+.totem-welcome-error .totem-welcome-icon {
+  color: var(--white);
+  background: var(--orange);
+}
+
+.totem-order-number {
+  margin: 12px 0 10px;
+  color: var(--green-dark);
+  font-weight: 700;
+}
+
+.totem-points-earned {
+  margin: 16px 0 0;
+  padding: 12px 16px;
+  border-radius: 10px;
+  color: var(--green-dark);
+  background: var(--green-soft);
+  font-weight: 700;
+}
+
+.totem-timeout-message {
+  margin: 14px 0 0;
+  color: var(--brown-soft);
+  font-size: 0.88rem;
+}
+
+.totem-privacy-note {
+  margin-top: 24px;
+  color: var(--brown-soft);
+  font-size: 0.88rem !important;
+}
+
+.totem-benefit-message strong {
+  color: var(--green);
+}
+
+@media (min-width: 701px) {
+  .totem-header-content {
+    width: min(1160px, calc(100% - 48px));
+    min-height: 84px;
+  }
+
+  .totem-main {
+    display: flex;
+    align-items: center;
+    padding: 48px 24px 64px;
+    height: 100vh;
+  }
+
+  .totem-shell {
+    width: min(1080px, 100%);
+    min-height: 100%;
+    padding: 42px;
+    border-radius: 22px;
+  }
+
+  .totem-progress {
+    overflow-x: visible;
+  }
+
+  .totem-navigation-top {
+    flex-wrap: nowrap;
+  }
+
+  .totem-welcome {
+    min-height: 268px;
+  }
+
+  .totem-choice-grid {
+    flex-direction: row;
+  }
+
+  .totem-product-card {
+    padding: 22px;
+  }
+
+  .totem-product-image {
+    width: 136px;
+    height: 136px;
+    flex-basis: 136px;
+  }
+
+  .totem-product-card p {
+    min-height: 48px;
+  }
+
+  .totem-bottom-bar,
+  .totem-action-row {
+    align-items: center;
+    flex-direction: row;
+  }
+
+  .totem-cart-item {
+    align-items: center;
+    flex-wrap: nowrap;
+  }
+}
+
+.go-back-header-totem, .totem-cancel-button {
+    background-color: var(--white);
+    border-color: var(--warning-yellow);
+    color: var(--warning-brown);
+}
+
+.go-back-header-totem:hover, .totem-cancel-button:hover {
+    background-color: var(--white);
+    border-color: var(--warning-yellow);
+    color: var(--warning-brown);
+}
+
+.go-back-icon {
+    display: block;
+    width: 24px;
+    height: 24px;
+}
