@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#1e4b3c">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <meta name="apple-mobile-web-app-title" content="Raízes">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="icon" type="image/png" href="assets/logos/logotipo.png">
+  <link rel="apple-touch-icon" href="assets/logos/logotipo.png">
+  <meta name="description" content="Modo totem de autoatendimento da Raízes do Nordeste.">
+  <title>Raízes do Nordeste - Totem</title>
+  <link rel="stylesheet" href="css/estilos.css">
+  <link rel="stylesheet" href="css/responsivo.css">
+  <link rel="stylesheet" href="css/totem.css">
+</head>
+
+<body class="totem-mode">
+
+  <main class="totem-main">
+    <div class="totem-shell" id="totem-content" aria-live="polite"></div>
+  </main>
+
+  <template id="totem-progress-template">
+    <header class="totem-navigation-header">
+      <div class="totem-navigation-top">
+        <div data-totem-back-area>
+          <button class="button button-outline totem-navigation-button go-back-header-totem" id="totem-back"
+            type="button" aria-label="Voltar">
+            <img class="go-back-icon" src="./assets/imagens/backIcon.svg" alt="" aria-hidden="true">
+          </button>
+        </div>
+        <div data-totem-cancel-area>
+          <button class="button button-outline totem-navigation-button totem-cancel-button" id="totem-cancel"
+            type="button" aria-label="Cancelar atendimento">
+            <img class="go-back-icon" src="./assets/imagens/homeIcon.svg" alt="" aria-hidden="true">
+          </button>
+        </div>
+      </div>
+      <ol class="totem-progress" aria-label="Progresso do atendimento" data-totem-progress>
+        <li class="totem-progress-step" data-totem-progress-step>
+          <span class="totem-progress-marker">
+            1
+          </span>
+          <span>
+            Cardápio
+          </span>
+        </li>
+        <li class="totem-progress-step" data-totem-progress-step>
+          <span class="totem-progress-marker">
+            2
+          </span>
+          <span>
+            Pedido
+          </span>
+        </li>
+        <li class="totem-progress-step" data-totem-progress-step>
+          <span class="totem-progress-marker">
+            3
+          </span>
+          <span>Benefícios</span>
+        </li>
+        <li class="totem-progress-step" data-totem-progress-step>
+          <span class="totem-progress-marker">
+            4
+          </span>
+          <span>
+            Pagamento
+          </span>
+        </li>
+        <li class="totem-progress-step" data-totem-progress-step>
+          <span class="totem-progress-marker">
+            5
+          </span>
+          <span>
+            Concluído
+          </span>
+        </li>
+      </ol>
+    </header>
+  </template>
+
+  <template id="totem-step-heading-template">
+    <div class="totem-step-heading">
+      <h1 data-totem-heading></h1>
+      <p data-totem-description></p>
+    </div>
+  </template>
+
+  <template id="totem-welcome-template">
+    <div class="totem-start-content">
+      <div class="totem-start-logo-wrapper">
+        <img class="totem-start-logo" src="./assets/logos/logo.png" alt="Raízes do Nordeste">
+      </div>
+      <section class="totem-welcome" data-totem-stage>
+        <h1>
+          Peça do seu jeito.
+        </h1>
+        <p>
+          Escolha seus sabores, confirme o pedido e aguarde a retirada no balcão.
+        </p>
+        <button class="button button-primary totem-button" data-totem-action="start" type="button">
+          Começar atendimento
+        </button>
+      </section>
+
+      <div class="totem-configured-unit">
+        <span data-totem-unit></span>
+      </div>
+    </div>
+  </template>
+
+  <template id="totem-blocked-template">
+    <section class="totem-welcome totem-welcome-error" data-totem-stage>
+      <span class="totem-welcome-icon" aria-hidden="true">!</span>
+      <span class="eyebrow">
+        Totem não configurado
+      </span>
+      <h1>
+        Aguardando configuração.
+      </h1>
+      <p>
+        Solicite a um funcionário que configure a unidade deste equipamento antes de iniciar o atendimento.
+      </p>
+    </section>
+  </template>
+
+  <template id="totem-config-template">
+    <div data-totem-stage>
+      <div class="totem-config-heading">
+        <span class="eyebrow">
+          Acesso interno
+        </span>
+        <h1>
+          Configurar este totem
+        </h1>
+        <p>
+          Defina a unidade fixa. Depois de salvar, o cliente verá somente o início e o fluxo do pedido.
+        </p>
+      </div>
+      <div class="totem-panel totem-config-panel">
+        <label class="field-label" for="totem-config-pin">
+          PIN do funcionário
+        </label>
+        <input class="field-control totem-control" id="totem-config-pin" type="password" inputmode="numeric"
+          maxlength="4" autocomplete="off" placeholder="Digite o PIN">
+        <label class="field-label" for="totem-config-unit">
+          Unidade deste equipamento
+        </label>
+        <select class="field-control totem-control" id="totem-config-unit">
+          <option value="">Selecione uma unidade</option>
+        </select>
+        <button class="button button-primary totem-button" data-totem-action="save-config" type="button">
+          Salvar configuração
+        </button>
+        <p class="form-message" id="totem-config-message" role="alert"></p>
+      </div>
+    </div>
+  </template>
+
+  <template id="totem-unit-option-template">
+    <option></option>
+  </template>
+
+  <template id="totem-stage-template">
+    <div data-totem-stage>
+      <div data-totem-stage-content></div>
+    </div>
+  </template>
+
+  <template id="totem-menu-stage-template">
+    <div data-totem-stage>
+      <div data-totem-stage-content>
+        <div class="totem-step-heading">
+          <h1>Nosso impecável cardápio</h1>
+          <p>Selecione suas iguarias</p>
+        </div>
+      </div>
+    </div>
+  </template>
+
+  <template id="totem-menu-content-template">
+    <div class="totem-scroll-wrapper">
+      <div class="totem-menu-grid totem-scroll-area" data-totem-menu-grid>
+
+      </div>
+      <div class="totem-scrollbar" data-totem-scrollbar data-scrollbar aria-label="Rolar itens do cardápio" hidden>
+        <span class="totem-scrollbar-thumb" data-totem-scrollbar-thumb data-scrollbar-thumb></span>
+      </div>
+    </div>
+    <div class="totem-bottom-bar">
+      <span data-totem-item-count>
+
+      </span>
+      <div class="totem-menu-total">
+        <span>
+          Total
+        </span>
+        <strong data-totem-menu-total>
+
+        </strong>
+      </div>
+      <button class="button button-primary totem-button-small" data-totem-action="open-cart" type="button">
+        Ver pedido
+      </button>
+    </div>
+  </template>
+
+  <template id="totem-empty-menu-template">
+    <p class="status-message">
+      Nenhum produto disponível nesta unidade no momento.
+    </p>
+  </template>
+
+  <template id="totem-product-template">
+    <article class="totem-product-card" data-totem-product-card>
+      <div class="totem-product-image">
+        <img data-totem-image alt="Imagem do produto">
+      </div>
+      <div class="totem-product-info">
+        <div class="product-card-tags" data-totem-tags></div>
+        <h2 data-totem-product-name></h2>
+        <p data-totem-product-description></p>
+        <strong data-totem-product-price></strong>
+      </div>
+      <div class="totem-product-controls totem-quantity-controls" aria-label="Quantidade do produto">
+        <button class="button totem-quantity-button" data-totem-action="increase-product" type="button"
+          aria-label="Adicionar uma unidade">
+          +
+        </button>
+        <strong class="totem-product-quantity" data-totem-product-quantity>
+          0
+        </strong>
+        <button class="button totem-quantity-button" data-totem-action="decrease-product" type="button"
+          aria-label="Remover uma unidade">
+          −
+        </button>
+      </div>
+    </article>
+  </template>
+
+  <template id="totem-tag-template">
+    <span class="product-tag" data-totem-tag></span>
+  </template>
+
+  <template id="totem-cart-empty-template">
+    <div data-totem-stage>
+      <div data-totem-stage-content>
+        <button class="button button-outline totem-button totem-empty-cart-button"  data-totem-action="back-to-menu" type="button">
+          Voltar ao cardápio
+        </button>
+      </div>
+    </div>
+  </template>
+
+  <template id="totem-cart-content-template">
+    <div class="totem-panel totem-cart-panel">
+      <div class="totem-scroll-wrapper">
+        <div class="totem-cart-items-scroll totem-scroll-area" data-totem-cart-items>
+
+        </div>
+        <div class="totem-scrollbar" data-totem-scrollbar data-scrollbar aria-label="Rolar itens do pedido" hidden>
+          <span class="totem-scrollbar-thumb" data-totem-scrollbar-thumb data-scrollbar-thumb>
+
+          </span>
+        </div>
+      </div>
+      <div class="totem-total">
+        <span>Total</span>
+        <strong data-totem-total></strong>
+      </div>
+    </div>
+    <div class="totem-action-row totem-cart-actions">
+      <button class="button button-outline totem-button-small" data-totem-action="back-to-menu" type="button">
+        Adicionar mais
+      </button>
+      <button class="button button-primary totem-button-small" data-totem-action="continue-identification" type="button">
+        Continuar
+      </button>
+    </div>
+  </template>
+
+  <template id="totem-cart-item-template">
+    <div class="totem-cart-item">
+      <div class="totem-cart-item-image">
+        <img data-totem-cart-item-image alt="Imagem do produto">
+      </div>
+      <div class="totem-cart-item-info">
+        <strong data-totem-cart-item-name></strong>
+        <span data-totem-cart-item-price></span>
+      </div>
+      <strong class="totem-cart-item-total" data-totem-cart-item-total></strong>
+      <div class="totem-cart-item-controls totem-quantity-controls" aria-label="Quantidade do produto">
+        <button class="button totem-quantity-button" data-totem-action="increase-cart-product" type="button" aria-label="Adicionar uma unidade">
+          +
+        </button>
+        <strong class="totem-product-quantity" data-totem-cart-item-quantity></strong>
+        <button class="button totem-quantity-button" data-totem-action="decrease-cart-product" type="button" aria-label="Remover uma unidade">
+          −
+        </button>
+      </div>
+    </div>
+  </template>
+
+  <template id="totem-identification-content-template">
+    <div class="totem-panel totem-identification-panel">
+      <span class="eyebrow">
+        Identificação opcional
+      </span>
+      <h2>
+        CPF e benefícios
+      </h2>
+      <p>
+        Informe o CPF somente <strong>se quiser</strong> CPF na nota ou participar da fidelidade.
+      </p>
+      <label class="field-label" for="totem-cpf">
+        CPF
+      </label>
+      <input class="field-control totem-control" id="totem-cpf" type="text" inputmode="numeric" maxlength="14" autocomplete="off" placeholder="000.000.000-00" data-totem-cpf>
+      <div class="totem-keyboard" data-totem-keyboard aria-label="Teclado numérico do CPF">
+        <button class="button totem-key-button" data-totem-key="1" type="button">1</button>
+        <button class="button totem-key-button" data-totem-key="2" type="button">2</button>
+        <button class="button totem-key-button" data-totem-key="3" type="button">3</button>
+        <button class="button totem-key-button" data-totem-key="4" type="button">4</button>
+        <button class="button totem-key-button" data-totem-key="5" type="button">5</button>
+        <button class="button totem-key-button" data-totem-key="6" type="button">6</button>
+        <button class="button totem-key-button" data-totem-key="7" type="button">7</button>
+        <button class="button totem-key-button" data-totem-key="8" type="button">8</button>
+        <button class="button totem-key-button" data-totem-key="9" type="button">9</button>
+        <button class="button totem-key-button" data-totem-key="0" type="button">0</button>
+        <button class="button totem-key-button" data-totem-key="backspace" type="button" aria-label="Apagar último número">
+          ⌫
+        </button>
+        <button class="button totem-key-button" data-totem-key="clear" type="button">
+          Limpar
+        </button>
+      </div>
+      <div class="totem-identification-options">
+        <label class="checkbox-row">
+          <input id="totem-cpf-invoice" type="checkbox">
+          <span>
+            Quero informar meu CPF na nota.
+          </span>
+        </label>
+        <label class="checkbox-row">
+          <input id="totem-loyalty" type="checkbox">
+          <span>
+            Quero participar da fidelidade e acumular pontos.
+          </span>
+        </label>
+      </div>
+      <p class="totem-privacy-note">
+        Seus dados são criptografados e tratados com segurança, conforme a LGPD. O CPF é opcional.
+      </p>
+      <p class="form-message" data-totem-identification-message role="alert">
+
+      </p>
+      <div class="totem-action-row totem-identification-actions">
+        <button class="button button-outline totem-button-small" data-totem-action="continue-without-cpf" type="button">
+          Continuar sem CPF
+        </button>
+        <button class="button button-primary totem-button-small" data-totem-action="confirm-identification" type="button">
+          Continuar
+        </button>
+      </div>
+    </div>
+  </template>
+
+  <template id="totem-payment-content-template">
+    <div class="totem-panel totem-payment-panel">
+      <div class="totem-total">
+        <span>Total enviado</span>
+        <strong data-totem-total>
+          
+        </strong>
+      </div>
+      <p class="totem-privacy-note totem-benefit-message" data-totem-benefit-message hidden>
+        Benefício aplicado: <strong data-totem-benefit-value></strong>
+      </p>
+      <p class="totem-privacy-note totem-cpf-message" data-totem-cpf-message hidden>
+
+      </p>
+      <p class="totem-privacy-note">
+        O totem não armazena os dados completos do pagamento.
+      </p>
+      <button class="button button-primary totem-button" data-totem-action="send-payment" type="button">
+        Enviar para pagamento
+      </button>
+    </div>
+  </template>
+
+  <template id="totem-payment-return-content-template">
+    <div class="totem-choice-grid">
+      <button class="totem-choice-card totem-choice-success" data-totem-action="approve-payment" type="button">
+        <strong>
+          Pagamento aprovado
+        </strong>
+        <span>
+          Confirmar pedido
+        </span>
+      </button>
+      <button class="totem-choice-card totem-choice-error" data-totem-action="fail-payment" type="button">
+        <strong>
+          Pagamento não aprovado
+        </strong>
+        <span>
+          Tentar novamente
+        </span>
+      </button>
+    </div>
+  </template>
+
+  <template id="totem-payment-failure-template">
+    <div data-totem-stage>
+      <div data-totem-stage-content>
+        <section class="totem-welcome totem-welcome-error">
+          <span class="totem-welcome-icon" aria-hidden="true">
+            !
+          </span>
+          <span class="eyebrow">
+            Pagamento
+          </span>
+          <h1>
+            Não foi aprovado.
+          </h1>
+          <p>
+            O pedido ainda não foi enviado para a cozinha. Você pode tentar novamente ou encerrar esta sessão.
+          </p>
+          <div class="totem-action-row">
+            <button class="button button-primary totem-button-small" data-totem-action="retry-payment" type="button">
+              Tentar novamente
+            </button>
+            <button class="button button-outline totem-button-small" data-totem-action="finish" type="button">
+              Encerrar
+            </button>
+          </div>
+        </section>
+      </div>
+    </div>
+  </template>
+
+  <template id="totem-confirmation-template">
+    <div data-totem-stage>
+      <div data-totem-stage-content>
+        <section class="totem-welcome totem-welcome-success">
+          <span class="totem-welcome-icon" aria-hidden="true">
+            ✓
+          </span>
+          <span class="eyebrow">
+            Pedido confirmado
+          </span>
+          <h1>
+            Obrigado!
+          </h1>
+          <p>
+            Seu pedido <strong data-totem-order-number></strong> foi enviado para a cozinha.
+          </p>
+          <div class="totem-order-number">
+            Retire no balcão quando estiver pronto.
+          </div>
+          <p class="totem-points-earned" data-totem-points-earned hidden>
+            Você ganhou <strong data-totem-points-value></strong> nesta compra.
+          </p>
+          <p class="totem-timeout-message" data-totem-timeout aria-live="polite">
+            Esta tela será reiniciada em 60 segundos.
+          </p>
+          <button class="button button-primary totem-button" data-totem-action="finish" type="button">
+            Encerrar atendimento
+          </button>
+        </section>
+      </div>
+    </div>
+  </template>
+
+  <script src="js/dados.js"></script>
+  <script src="js/comum.js"></script>
+  <script src="js/componentes.js"></script>
+  <script src="js/rolagem.js"></script>
+  <script src="js/totem.js"></script>
+  <script src="js/pwa.js"></script>
+</body>
+
+</html>
