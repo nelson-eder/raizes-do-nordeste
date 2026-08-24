@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#1e4b3c">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <meta name="apple-mobile-web-app-title" content="Raízes">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="icon" type="image/png" href="assets/logos/logotipo.png">
+  <link rel="apple-touch-icon" href="assets/logos/logotipo.png">
+  <meta name="description" content="Fidelidade e promoções da Raízes do Nordeste.">
+  <title>Raízes do Nordeste | Benefícios</title>
+  <link rel="stylesheet" href="css/estilos.css">
+  <link rel="stylesheet" href="css/responsivo.css">
+  <link rel="stylesheet" href="css/totem.css">
+</head>
+
+<body>
+
+  <header class="site-header">
+    <div class="page-container header-content">
+      <a class="brand" href="index.html" aria-label="Raízes do Nordeste, início">
+        <img class="logo" src="assets/logos/logo.png" alt="Raízes do Nordeste">
+      </a>
+      <div class="header-actions">
+        <nav class="main-navigation" aria-label="Navegação principal">
+          <a href="beneficios.html">Benefícios</a>
+          <a class="header-wide-link" href="quem-somos.html">Quem Somos</a>
+          <a href="privacidade.html">Privacidade</a>
+          <a href="cardapio.html">Cardápio</a>
+          <a class="header-wide-link" href="franquias.html">Franquias</a>
+          <a class="header-wide-link" href="ajuda.html">Ajuda</a>
+          <a href="totem.html">Modo totem</a>
+          <a class="header-wide-link" href="aplicativo.html">Aplicativo</a>
+          <a class="button button-small button-outline" href="acesso.html">Entrar</a>
+        </nav>
+        <button class="menu-toggle"
+          type="button"
+          aria-expanded="false"
+          aria-controls="site-menu"
+          aria-label="Abrir menu">
+          <span class="menu-toggle-lines" aria-hidden="true">
+            <span></span>
+            <span></span>
+            <span></span>
+          </span>
+          <span>Menu</span>
+        </button>
+      </div>
+    </div>
+    <div class="site-menu page-container" id="site-menu" hidden>
+      <nav class="site-menu-navigation" aria-label="Menu de informações">
+        <a class="site-menu-link" href="quem-somos.html">
+          <strong>Quem Somos</strong>
+          <span>Conheça a história e o jeito da nossa rede.</span>
+        </a>
+        <a class="site-menu-link" href="privacidade.html">
+          <strong>Privacidade</strong>
+          <span>Entenda como cuidamos dos seus dados.</span>
+        </a>
+        <a class="site-menu-link" href="franquias.html">
+          <strong>Franquias</strong>
+          <span>Veja como funciona fazer parte da Raízes.</span>
+        </a>
+        <a class="site-menu-link" href="ajuda.html">
+          <strong>Ajuda</strong>
+          <span>Encontre respostas para os principais assuntos.</span>
+        </a>
+        <a class="site-menu-link" href="aplicativo.html">
+          <strong>Baixar aplicativo</strong>
+          <span>Veja as versões sugeridas para iOS e Android.</span>
+        </a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="page-heading-section">
+      <div class="page-container">
+        <span class="eyebrow">
+          Fidelidade e promoções
+        </span>
+        <h1>
+          Benefícios que fazem sentido para você.
+        </h1>
+        <p class="page-heading-description">
+          As condições podem mudar conforme a unidade e as campanhas ativas.
+        </p>
+      </div>
+    </section>
+
+    <section class="benefits-page-section">
+      <div class="page-container">
+        <div class="points-card" id="points-card"></div>
+        <div class="benefits-grid" id="benefits-grid">
+          <div class="benefit-section-heading">
+            <h2>
+              Use seus pontos
+            </h2>
+          </div>
+        </div>
+
+        <template id="points-card-template">
+          <div>
+            <h2 data-points-value></h2>
+            <p data-points-description></p>
+          </div>
+          <a class="button button-primary" data-points-action></a>
+        </template>
+
+        <template id="benefit-card-template">
+          <article class="benefit-card">
+            <h3 data-benefit-name></h3>
+            <p data-benefit-description></p>
+            <span class="benefit-points" data-benefit-points></span>
+            <button class="button button-small benefit-button" type="button" data-benefit-button></button>
+            <p class="form-message benefit-message" role="status"></p>
+          </article>
+        </template>
+
+        <template id="promotion-card-template">
+          <article class="benefit-card benefit-card-promotion">
+            <h3 data-promotion-name></h3>
+            <p data-promotion-description></p>
+            <span class="benefit-points" data-promotion-audience></span>
+          </article>
+        </template>
+
+        <template id="promotion-empty-template">
+          <article class="benefit-card benefit-card-promotion">
+            <h3>
+              Nenhuma promoção ativa
+            </h3>
+            <p>
+              Esta unidade não possui uma campanha disponível no momento.
+            </p>
+          </article>
+        </template>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer" id="acesso">
+    <div class="page-container footer-content">
+      <img class="footer-logo" src="./assets/logos/logo.png" alt="Raízes do Nordeste"/>
+    </div>
+  </footer>
+
+  <script src="js/dados.js"></script>
+  <script src="js/comum.js"></script>
+  <script src="js/componentes.js"></script>
+  <script src="js/beneficios.js"></script>
+  <script src="js/pwa.js"></script>
+</body>
+</html>
