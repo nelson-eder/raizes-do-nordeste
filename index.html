@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#1e4b3c">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <meta name="apple-mobile-web-app-title" content="Raízes">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="icon" type="image/png" href="assets/logos/logotipo.png">
+  <link rel="apple-touch-icon" href="assets/logos/logotipo.png">
+  <meta name="description" content="Raízes do Nordeste: lanches, cafés e sabores da nossa terra.">
+  <title>Raízes do Nordeste | Início</title>
+  <link rel="stylesheet" href="css/estilos.css">
+  <link rel="stylesheet" href="css/responsivo.css">
+  <link rel="stylesheet" href="css/totem.css">
+</head>
+
+<body>
+
+  <header class="site-header">
+    <div class="page-container header-content">
+      <a class="brand" href="index.html" aria-label="Raízes do Nordeste, início">
+        <img class="logo" src="assets/logos/logo.png" alt="Raízes do Nordeste">
+      </a>
+      <div class="header-actions">
+        <nav class="main-navigation" aria-label="Navegação principal">
+          <a href="beneficios.html">Benefícios</a>
+          <a class="header-wide-link" href="quem-somos.html">Quem Somos</a>
+          <a href="privacidade.html">Privacidade</a>
+          <a href="cardapio.html">Cardápio</a>
+          <a class="header-wide-link" href="franquias.html">Franquias</a>
+          <a class="header-wide-link" href="ajuda.html">Ajuda</a>
+          <a href="totem.html">Modo totem</a>
+          <a class="header-wide-link" href="aplicativo.html">Aplicativo</a>
+          <a class="button button-small button-outline" href="acesso.html">Entrar</a>
+        </nav>
+        <button class="menu-toggle"
+          type="button"
+          aria-expanded="false"
+          aria-controls="site-menu"
+          aria-label="Abrir menu">
+          <span class="menu-toggle-lines" aria-hidden="true">
+            <span></span>
+            <span></span>
+            <span></span>
+          </span>
+          <span>Menu</span>
+        </button>
+      </div>
+    </div>
+    <div class="site-menu page-container" id="site-menu" hidden>
+      <nav class="site-menu-navigation" aria-label="Menu de informações">
+        <a class="site-menu-link" href="quem-somos.html">
+          <strong>Quem Somos</strong>
+          <span>Conheça a história e o jeito da nossa rede.</span>
+        </a>
+        <a class="site-menu-link" href="privacidade.html">
+          <strong>Privacidade</strong>
+          <span>Entenda como cuidamos dos seus dados.</span>
+        </a>
+        <a class="site-menu-link" href="franquias.html">
+          <strong>Franquias</strong>
+          <span>Veja como funciona fazer parte da Raízes.</span>
+        </a>
+        <a class="site-menu-link" href="ajuda.html">
+          <strong>Ajuda</strong>
+          <span>Encontre respostas para os principais assuntos.</span>
+        </a>
+        <a class="site-menu-link" href="aplicativo.html">
+          <strong>Baixar aplicativo</strong>
+          <span>Veja as versões sugeridas para iOS e Android.</span>
+        </a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero-section">
+      <div class="page-container hero-content">
+        <div class="hero-copy">
+          <h1>
+            Comida boa, feita do nosso jeito.
+          </h1>
+          <p>
+            Escolha a unidade mais próxima e encontre um cardápio cheio de sabores nordestinos para
+            pedir e retirar sem complicação.
+          </p>
+          <a class="button button-primary" href="#escolher-unidade">
+            Escolher unidade
+          </a>
+        </div>
+        <article class="hero-highlight" aria-label="Destaque da semana">
+          <img class="highlight-image"
+            src="assets/imagens/fotos/cuscuz-junino.jpg"
+            alt="Cuscuz recheado servido em um prato">
+          <div class="highlight-content">
+            <p class="highlight-label">
+              Destaque da semana
+            </p>
+            <strong>
+              Cuscuz recheado
+            </strong>
+            <span>
+              Disponibilidade conforme a unidade
+            </span>
+            <a class="highlight-link" href="cardapio.html">
+              Conhecer o cardápio
+            </a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="unit-section" id="escolher-unidade">
+      <div class="page-container">
+        <div class="section-heading">
+          <h2>
+            Onde você quer pedir?
+          </h2>
+          <p>
+            O cardápio, os preços e as promoções podem mudar de acordo com a unidade.
+          </p>
+        </div>
+        <div class="unit-card">
+          <div class="unit-card-content">
+            <label class="field-label" for="unit-select">
+              Selecione uma unidade
+            </label>
+            <select class="field-control" id="unit-select" name="unit">
+              <option value="">
+                Todas as unidades
+              </option>
+              <option value="recife-centro">
+                Recife, Centro
+              </option>
+              <option value="olinda-carmo">
+                Olinda, Carmo
+              </option>
+              <option value="joao-pessoa-tambau">
+                João Pessoa, Tambaú
+              </option>
+            </select>
+            <p class="field-hint">
+              Escolha uma unidade ou consulte o cardápio completo antes de pedir.
+            </p>
+            <button class="button button-primary button-full" id="continue-button" type="button">
+              Continuar para o cardápio
+            </button>
+            <p class="form-message" id="unit-message" role="alert"></p>
+          </div>
+          <div class="unit-preview">
+            <h3>
+              Retirada rápida
+            </h3>
+            <p>
+              Faça seu pedido com calma e retire quando estiver pronto.
+            </p>
+            <div class="status-line">
+              <span class="status-dot" aria-hidden="true"></span>
+              <span>
+                Unidade aberta para pedidos
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="benefits-section" id="beneficios">
+      <div class="page-container">
+        <div class="section-heading section-heading-centered">
+          <span class="eyebrow">
+            Mais motivos para voltar
+          </span>
+          <h2>
+            Tem sabor para todo momento
+          </h2>
+        </div>
+        <div class="feature-grid">
+          <article class="feature-card">
+            <h3>
+              Programa de fidelidade
+            </h3>
+            <p>
+              Acumule pontos e troque por benefícios nas próximas visitas.
+            </p>
+          </article>
+          <article class="feature-card">
+            <h3>
+              Promoções da unidade
+            </h3>
+            <p>
+              Veja ofertas que respeitam a disponibilidade de cada loja.
+            </p>
+          </article>
+          <article class="feature-card">
+            <h3>
+              Pedido acompanhado
+            </h3>
+            <p>
+              Saiba quando seu pedido foi confirmado, preparado e liberado.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="privacy-section" id="privacidade">
+      <div class="page-container privacy-content">
+        <div class="privacy-copy">
+          <span class="eyebrow">
+            Privacidade em primeiro lugar
+          </span>
+          <h2>
+            Você escolhe como seus dados serão usados.
+          </h2>
+          <p>
+            Usamos apenas os dados necessários para o pedido. Campanhas e benefícios personalizados
+            dependem da sua autorização.
+          </p>
+          <a class="button button-outline privacy-link" href="privacidade.html">
+            Conheça nossas opções de privacidade
+          </a>
+        </div>
+        <aside class="privacy-highlight" aria-label="Proteção de dados">
+          <span class="privacy-highlight-icon" aria-hidden="true">
+            <img class="privacy-shield-icon" src="assets/imagens/shieldIcon.svg" alt="">
+          </span>
+          <div>
+            <strong>
+              Segurança desde o primeiro pedido.
+            </strong>
+            <p>
+              Seus dados são criptografados e tratados com segurança, conforme a LGPD.
+            </p>
+          </div>
+        </aside>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer" id="acesso">
+    <div class="page-container footer-content">
+      <img class="footer-logo" src="./assets/logos/logo.png" alt="Raízes do Nordeste"/>
+    </div>
+  </footer>
+
+  <script src="js/dados.js"></script>
+  <script src="js/comum.js"></script>
+  <script src="js/componentes.js"></script>
+  <script src="js/index.js"></script>
+  <script src="js/pwa.js"></script>
+</body>
+</html>
